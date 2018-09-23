@@ -5,7 +5,12 @@
 // heroku logs
 const express = require("express");
 const app = express();
+const keys = require("./config/keys");
+const mongoose = require("mongoose");
 
+mongoose.connect(keys.mongo_uri);
+
+require("./models/users.js");
 require("./services/passport");
 require("./routes/authroutes")(app);
 
