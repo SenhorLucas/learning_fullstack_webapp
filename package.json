@@ -1,0 +1,32 @@
+{
+  "name": "learning_fullstack_webapp",
+  "version": "1.0.0",
+  "description": "Personal studies on the development of a full stack web app using express, mongodb, react and redux. This application is a paid email survey service.",
+  "main": "index.js",
+  "engines": {
+    "node": "10.10.0",
+    "npm": "6.4.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SenhorLucas/learning_fullstack_webapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SenhorLucas/learning_fullstack_webapp/issues"
+  },
+  "homepage": "https://github.com/SenhorLucas/learning_fullstack_webapp#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^1.14.3"
+  }
+}
