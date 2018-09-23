@@ -1,3 +1,7 @@
+# keys file
+keys.js
+client_id.json
+
 # Logs
 logs
 *.log
@@ -59,4 +63,3 @@ typings/
 
 # next.js build output
 .next
-
