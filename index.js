@@ -30,7 +30,7 @@ const app = express();
 // require("./routes/authroutes")(app);
 
 app.get("/google63e4200fdfdd534f.html", (req, res) => {
-	const s = require("./config/google_domain_verificaiton");
+	const s = require("./config/google_domain_verification");
 	const a = s.verification_html;
 	res.send(a);
 });
