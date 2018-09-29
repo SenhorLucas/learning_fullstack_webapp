@@ -30,7 +30,9 @@ const app = express();
 // require("./routes/authroutes")(app);
 
 app.get("/google63e4200fdfdd534f.html", (req, res) => {
-	res.send("google-site-verification: google63e4200fdfdd534f.html");
+	const s = require("./config/google_domain_verificaiton");
+	const a = s.verification_html;
+	res.send(a);
 });
 
 const PORT = process.env.PORT || 5000;
