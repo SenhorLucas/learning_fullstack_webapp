@@ -19,10 +19,4 @@ module.exports = app => {
 		req.logout();
 		res.send(req.user);
 	});
-
-	app.get("/google63e4200fdfdd534f.html", (req, res) => {
-		res.send(
-			require("../config/google_domain_verification").verification_html
-		);
-	});
 };
