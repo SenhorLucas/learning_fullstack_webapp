@@ -25,19 +25,27 @@ passport.use(
 			callbackURL: getCallbackRoute(),
 			proxy: true
 		},
-		(accessToken, refreshToken, profile, done) => {
-			User.findOne({ google_id: profile.id }).then(existingUser => {
-				if (existingUser) {
-					done(null, existingUser);
-				} else {
-					new User({ google_id: profile.id })
-						.save()
-						.then(user => done(null, user));
-				}
-			});
+		// handleUserRequest
+		async (accessToken, refreshToken, profile, done) => {
+			const existingUser = await User.findOne({ google_id: profile.id });
+			if (existingUser) {
+				return done(null, existingUser);
+			}
+			const new_user = await new User({ google_id: profile.id }).save();
+			return done(null, new_user);
 		}
 	)
 );
+
+// async function handleUserRequest(accessToken, refreshToken, profile, done) {
+// 	const existingUser = await User.findOne({ google_id: profile.id });
+// 	if (existingUser) {
+// 		done(null, existingUser);
+// 	} else {
+// 		const user = await new User({ google_id: profile.id }).save();
+// 		done(null, user);
+// 	}
+// }
 
 function getCallbackRoute() {
 	var callback_route = "";
