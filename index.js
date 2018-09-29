@@ -29,7 +29,9 @@ const app = express();
 // require("./services/passport");
 // require("./routes/authroutes")(app);
 
-app.use(express.static("/"));
+app.get("/google63e4200fdfdd534f.html", (req, res) => {
+	res.send("google-site-verification: google63e4200fdfdd534f.html");
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
