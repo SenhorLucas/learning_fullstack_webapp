@@ -15,12 +15,14 @@ passport.deserializeUser((user_id, done) => {
 	});
 });
 
+if (process.env.NODE_ENV === "production") {
+}
 passport.use(
 	new GoogleStrategy(
 		{
 			clientID: keys.google_client_ID,
 			clientSecret: keys.google_client_secret,
-			callbackURL: "/auth/google/callback",
+			callbackURL: getCallbackRoute(),
 			proxy: true
 		},
 		(accessToken, refreshToken, profile, done) => {
@@ -36,3 +38,16 @@ passport.use(
 		}
 	)
 );
+
+function getCallbackRoute() {
+	const callback_route = "";
+	if (process.env.NODE_ENV === "production") {
+		callback_route =
+			"https://shielded-falls-26186.herokuapp.com/auth/google/callback";
+	} else if (process.env.NODE_ENV === "development") {
+		callback_route = "/auth/google/callback";
+	} else {
+		console.log("production or development environment not found");
+	}
+	return callback_route;
+}
