@@ -29,5 +29,7 @@ require("./models/users.js");
 require("./services/passport");
 require("./routes/authroutes")(app);
 
+app.use(express.static("/"));
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);
