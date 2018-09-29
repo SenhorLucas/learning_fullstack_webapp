@@ -40,14 +40,12 @@ passport.use(
 );
 
 function getCallbackRoute() {
-	const callback_route = "";
+	var callback_route = "";
 	if (process.env.NODE_ENV === "production") {
 		callback_route =
 			"https://shielded-falls-26186.herokuapp.com/auth/google/callback";
-	} else if (process.env.NODE_ENV === "development") {
-		callback_route = "/auth/google/callback";
 	} else {
-		console.log("production or development environment not found");
+		callback_route = "/auth/google/callback";
 	}
 	return callback_route;
 }
