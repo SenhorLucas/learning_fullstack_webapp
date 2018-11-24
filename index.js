@@ -23,10 +23,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-require("./models/users.js");
+require("./models/User");
+require("./models/Survey");
 require("./services/passport");
 require("./routes/authroutes")(app);
 require("./routes/billingroutes")(app);
+require("./routes/surveyroutes")(app);
 require("./routes/google_domain_verification")(app);
 
 if (process.env.NODE_ENV === "production") {
